@@ -1,0 +1,30 @@
+
+
+<div class="jumbotron container container-fluid">
+  
+    <nav>
+        <button class="btn btn-secondary" type="button" (click)="toggle()">{{ isOpen ? 'Close' : 'Open' }}!</button>
+    </nav>
+    <div [@showHide]="isOpen ? 'open' : 'closed'" class="show-hide-container">
+        <p>{{ isOpen ? 'Show' : 'Hide' }}!</p>
+    </div>
+
+    <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+        <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+    </div>
+
+    <p>File Upload</p>
+    <div>
+        <input type="file" class="form-control" (change)="onChange($event)">
+    </div>
+    <button class="btn btn-success" (click)="upload()">Upload</button>
+
+    <div *ngIf="fileLink">
+        <h3>Visit link for download</h3>
+        <a href="{{fileLink}}">{{fileLink}}</a>
+    </div>
+    
+    <div *ngIf="loading">
+        Loading...
+    </div>
+</div>
